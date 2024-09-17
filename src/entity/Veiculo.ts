@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, Collection, ManyToOne, ManyToMany, JoinTable } from "typeorm"
 import { Acessorio } from "./Acessorio";
 
-@Entity()
+@Entity('veiculo')
 export class Veiculo {
 
     @PrimaryGeneratedColumn()

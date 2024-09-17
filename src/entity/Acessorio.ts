@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, Collection, OneToMany } from "typeorm"
 import { Veiculo } from "./Veiculo"
 
-@Entity()
+@Entity('acessorio')
 export class Acessorio {
 
     @PrimaryGeneratedColumn()
@@ -10,6 +10,6 @@ export class Acessorio {
     @Column()
     nome: string
 
-    @OneToMany(() => Veiculo, (veiculo) => veiculo.acessorio)
-    veiculo: Veiculo[]
+    // @OneToMany(() => Veiculo, (veiculo) => veiculo.acessorio)
+    // veiculo: Veiculo[]
 }

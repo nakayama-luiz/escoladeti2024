@@ -34,10 +34,17 @@ export class VeinculoController{
 
     async addAcessorio(req: Request, res: Response){
         const findedVeiculo = await repository.findOneBy({id: parseInt(req.params.id)})
-
-        res.json(await repository.query(`INSERT INTO veiculo_acessorio_acessorio
+        try{
+            const final = await repository.query(`INSERT INTO veiculo_acessorio_acessorio
         (veiculoId, acessorioId)
-        VALUES(${findedVeiculo.id}, ${req.body.acessorioId});`))
+        VALUES(${findedVeiculo.id}, ${req.body.acessorioId});`)
+
+        res.json(final)
+        
+        }catch(e){
+            res.send(e)
+        }
+        res.json()
     }
 
     async removeAcessorio(req: Request, res: Response){

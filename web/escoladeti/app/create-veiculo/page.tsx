@@ -42,10 +42,12 @@ const Page = () => {
 
     return (
         <form className='w-[500px] mx-auto pt-20 flex flex-col gap-2' onSubmit={handleSubmit}>
-            <input required type="text" placeholder='Input your modelo' value={modelo} onChange={(e) => setModelo(e.target.value)} className='w-full border p-2 rounded-md' />
-            <input required  type='text' value={placa} onChange={(e) => setMarca(e.target.value)} className='w-full border p-2 rounded-md' />
+            <label htmlFor="">Modelo</label>
+            <input style={{color: 'black'}} required type="text"  value={modelo} onChange={(e) => setModelo(e.target.value)} className='w-full border p-2 rounded-md' />
+            <label htmlFor="">Placa</label>
+            <input style={{color: 'black'}} required  type='text' value={placa} onChange={(e) => setMarca(e.target.value)} className='w-full border p-2 rounded-md' />
             <label htmlFor="">Ano</label>
-            <input required type="number" name="ano" id="ano" value={anoFabricacao} onChange={(e) => setanoFabricacao(parseInt(e.target.value))}/>
+            <input style={{color: 'black'}} required type="number" name="ano" id="ano" value={anoFabricacao} onChange={(e) => setanoFabricacao(parseInt(e.target.value))}/>
             <button disabled={isLoading}>{isLoading ? 'Loading ...' : 'Submit'}</button>
         </form>
     )
