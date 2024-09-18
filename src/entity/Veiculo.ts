@@ -13,7 +13,7 @@ export class Veiculo {
     @Column({ type: "int"})
     anoFabricacao: number
 
-    @Column()
+    @Column({precision: 7})
     placa: string;
 
     @ManyToMany(() => Acessorio)
