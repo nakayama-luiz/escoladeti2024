@@ -48,6 +48,8 @@ export default function Item({ modelo, placa, anoFabricacao, id }: Props) {
                 <div className='flex justify-end gap-3 mt-4 text-sm'>
                 <button className='font-semibold' onClick={() => router.push(`/update-veiculo/${id}`)}>Atualizar</button>
                 <button className='font-semibold text-red-500' onClick={() => handleDelete(id)}>Deletar</button>
+                <button className='font-semibold text-blue-500' onClick={() => router.push(`/delete-acessorio/${id}`)}>Remover Acessorio</button>
+                <button className='font-semibold text-green-500' onClick={() => router.push(`/add-acessorio/${id}`)}>Adicionar Acessorio</button>
             </div>
                 </CardFooter>
             </Card>

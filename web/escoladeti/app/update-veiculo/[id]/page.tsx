@@ -65,9 +65,12 @@ const Page = ({ params }: { params: { id: number } }) => {
     }, [])
     return (
         <form className='w-[500px] mx-auto pt-20 flex flex-col gap-2' onSubmit={handleSubmit}>
-            <input type="text"  value={modelo} onChange={(e) => setModelo(e.target.value)} className='w-full border p-2 rounded-md' />
-            <textarea rows={10}  value={placa} onChange={(e) => setPlaca(e.target.value)} className='w-full border p-2 rounded-md' />
-            <input type="number" name="ano" id="ano" value={anoFabricacao} onChange={(e) => setAnoFabricacao(parseInt(e.target.value))}/>
+            <label>modelo</label>
+            <input style={{color: 'black'}} type="text"  value={modelo} onChange={(e) => setModelo(e.target.value)} className='w-full border p-2 rounded-md' />
+            <label>Placa</label>
+            <input style={{color: 'black'}} type="text" name="" id=" " value={placa} onChange={(e) => setPlaca(e.target.value)} className='w-full border p-2 rounded-md' />
+            <label>ano</label>
+            <input style={{color: 'black'}} type="number" name="ano" id="ano" value={anoFabricacao} onChange={(e) => setAnoFabricacao(parseInt(e.target.value))}/>
             <button disabled={isLoading}>{isLoading ? 'Loading ...' : 'Update'}</button>
         </form>
     )

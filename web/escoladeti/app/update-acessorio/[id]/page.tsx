@@ -78,7 +78,8 @@ const Page = ({ params }: { params: { id: number } }) => {
 
     return (
         <form className='w-[500px] mx-auto pt-20 flex flex-col gap-2' onSubmit={handleSubmit}>
-            <input type="text"  value={nome} onChange={(e) => setnome(e.target.value)} className='w-full border p-2 rounded-md' />
+
+            <input style={{color: 'black'}} type="text"  value={nome} onChange={(e) => setnome(e.target.value)} className='w-full border p-2 rounded-md' />
             <button disabled={isLoading}>{isLoading ? 'Loading ...' : 'Update'}</button>
         </form>
     )

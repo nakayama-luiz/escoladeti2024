@@ -40,7 +40,6 @@ export class VeinculoController{
         VALUES(${findedVeiculo.id}, ${req.body.acessorioId});`)
 
         res.json(final)
-        
         }catch(e){
             res.send(e)
         }

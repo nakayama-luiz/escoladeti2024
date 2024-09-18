@@ -13,7 +13,7 @@ const Page = ({ params }: { params: { id: number } }) => {
     const [value, setValue] = useState<string|undefined>('');
 
     const getDataRelated = async () => {
-        const response = await fetch('http://localhost:3333/acessorio/findUnRelatedAcessories/' + id)
+        const response = await fetch('http://localhost:3333/acessorio/findRelatedAcessories/' + id)
         const data = await response.json()
 
         setResposta(data)
@@ -59,8 +59,8 @@ const Page = ({ params }: { params: { id: number } }) => {
         console.log('com muito esforço: ', forms.acessorioId)
         try {
             
-            const data = await fetch('http://localhost:3333/addAcessorio/'+id, {
-                method: 'PUT',
+            const data = await fetch('http://localhost:3333/removeAcessorio/'+id, {
+                method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -95,11 +95,11 @@ const Page = ({ params }: { params: { id: number } }) => {
 
     return (
         <form className='w-[500px] mx-auto pt-20 flex flex-col gap-2' onSubmit={handleSubmit}>
-            <h1>Selecione o acessorio para adicionar ao veiculo {nome}!</h1>
+            <h1>Selecione o acessorio para remover do {nome}!</h1>
             <select style={{color: 'black'}} name="poggers" id="haha" value={value} onChange={(e)=>{setValue((e.target.value))}}>
                 {resposta?.map((e: any) => <option value={e.id}>{e.nome}</option>)}
             </select>
-            <button disabled={isLoading}>{isLoading ? 'Loading ...' : 'Criar relação!'}</button>
+            <button disabled={isLoading}>{isLoading ? 'Loading ...' : 'Remover relação'}</button>
         </form>
     )
 }
