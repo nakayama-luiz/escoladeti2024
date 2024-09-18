@@ -4,7 +4,7 @@ import Item from './item'
 import ItemAcessorio from './ItemAcessorio'
 
 const getVeiculos = async () => {
-    const res = await fetch('http://localhost:3333/encontrar/findAll',  { cache: "no-cache" } )
+    const res = await fetch('http://localhost:3333/encontrar/findAllWithAcessories',  { cache: "no-cache" } )
 
     const json = await res.json()
     return json
@@ -27,7 +27,7 @@ const Page = async () => {
 
             <div className='grid grid-cols-3 gap-5 mt-8'>
                 {veiculos?.map((veiculos: any, i: number) => (
-                    <Item anoFabricacao={veiculos.anoFabricacao} placa={veiculos.placa} modelo={veiculos.modelo} id={veiculos.id} />
+                    <Item acessorios={veiculos.acessorio} anoFabricacao={veiculos.anoFabricacao} placa={veiculos.placa} modelo={veiculos.modelo} id={veiculos.id} />
                 ))}
             </div>
                     <br /><br /><br />

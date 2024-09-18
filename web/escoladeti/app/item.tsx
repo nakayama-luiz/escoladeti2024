@@ -7,14 +7,20 @@ import { Toaster } from "@/components/ui/toaster"
 import { toast } from '@/hooks/use-toast'
 import { ToastAction } from '@radix-ui/react-toast'
 
+interface acessorios{
+    id: number,
+    nome: string
+}
+
 interface Props {
     modelo: string
     placa: string
     anoFabricacao: number
     id: number
+    acessorios: acessorios[]
 }
 
-export default function Item({ modelo, placa, anoFabricacao, id }: Props) {
+export default function Item({ modelo, placa, anoFabricacao, acessorios, id }: Props) {
 
     const router = useRouter()
 
@@ -31,7 +37,7 @@ export default function Item({ modelo, placa, anoFabricacao, id }: Props) {
           })
         router.refresh()
     }
-
+    console.log('chegou foi isso aqui', acessorios)
     return (
 
         <div className=''>
@@ -43,6 +49,11 @@ export default function Item({ modelo, placa, anoFabricacao, id }: Props) {
                 <CardContent>
                 <p>Placa: {placa}</p>
                 <p>Ano de Fabricacao: {anoFabricacao}</p>
+                <br />
+                <h1>Acesório relacionados!</h1>
+                <div>
+                    {acessorios?.map((e)=> <span> {e.nome} </span>)}
+                </div>
                 </CardContent>
                 <CardFooter>
                 <div className='flex justify-end gap-3 mt-4 text-sm'>
